@@ -1,4 +1,4 @@
-# vue_shop（后台）
+# vue_shop
 
 ## Project setup
 ```
