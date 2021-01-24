@@ -2,13 +2,33 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+import Users from '../components/Users.vue';
 
 Vue.use(VueRouter)
 
-const routers = [
-  { path: '/', redirect: '/login' },
-  { path: '/login', component: Login },
-  { path: '/home', component: Home }
+const routers = [{
+    path: '/',
+    redirect: '/login'
+  },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/home',
+    component: Home,
+    redirect: '/welcome',
+    children: [{
+      path:'/welcome',
+      component:Welcome
+    },
+    {
+      path:'/users',
+      component:Users
+    }
+    ]
+  }
 ]
 
 const router = new VueRouter({
@@ -19,9 +39,9 @@ const router = new VueRouter({
 //from从那个路径跳转而来
 //next() 放行
 router.beforeEach((to, from, next) => {
-    if(to.path == "/login") return next();
-    const tokenStr = window.sessionStorage.getItem("token");
-    if(!tokenStr) return next('/login');
-    return next();
+  if (to.path === "/login") return next();
+  const tokenStr = window.sessionStorage.getItem("token");
+  if (!tokenStr) return next('/login');
+  return next();
 })
 export default router
