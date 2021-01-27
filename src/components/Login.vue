@@ -60,10 +60,21 @@ export default {
               if(!valid) return;
               //解构赋值 {}
               const {data:res} = await this.$http.post("login",this.loginForm);
-              if(res.meta.status !== 200) return this.$message.error('登录失败');
+            //  console.log(res)
+              if(res.meta.status !== 200) return this.$message.error(res.meta.msg);
               this.$message.success('登录成功');
               //将登陆成功的token保存到sessionStorage中
               window.sessionStorage.setItem("token",res.data.token);
+              console.log(res)
+              var rn;
+              if(res.data.rid=== 0){
+                  rn = '超级管理员'
+              }else{
+                  const {data:res1} = await this.$http.get('roles/'+res.data.rid)
+                  console.log(res1)
+                  rn = res1.data.roleName
+              }
+              window.sessionStorage.setItem("roleName",rn);
               //通过编程式导航跳转到后台主页
               this.$router.push("/home");
           })
