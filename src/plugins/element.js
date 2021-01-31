@@ -29,7 +29,8 @@ import {
   Alert,
   Tree,
   Select,
-  Option
+  Option,
+  Cascader
 } from 'element-ui'
 // fade/zoom 等
 import 'element-ui/lib/theme-chalk/base.css';
@@ -62,6 +63,7 @@ Vue.use(Alert)
 Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Cascader)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$notify = Notification
