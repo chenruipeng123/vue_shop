@@ -30,7 +30,9 @@ import {
   Tree,
   Select,
   Option,
-  Cascader
+  Cascader,
+  Tabs,
+  TabPane
 } from 'element-ui'
 // fade/zoom 等
 import 'element-ui/lib/theme-chalk/base.css';
@@ -64,6 +66,8 @@ Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(Cascader)
+Vue.use(Tabs)
+Vue.use(TabPane)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$notify = Notification
