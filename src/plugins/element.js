@@ -32,7 +32,12 @@ import {
   Option,
   Cascader,
   Tabs,
-  TabPane
+  TabPane,
+  Steps,
+  Step,
+  CheckboxGroup,
+  Checkbox,
+  Upload
 } from 'element-ui'
 // fade/zoom 等
 import 'element-ui/lib/theme-chalk/base.css';
@@ -68,6 +73,11 @@ Vue.use(Option)
 Vue.use(Cascader)
 Vue.use(Tabs)
 Vue.use(TabPane)
+Vue.use(Steps)
+Vue.use(Step)
+Vue.use(CheckboxGroup)
+Vue.use(Checkbox)
+Vue.use(Upload)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$notify = Notification
